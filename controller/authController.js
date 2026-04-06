@@ -3,7 +3,10 @@ const authService = require('../services/authservice');
 exports.registerUser = (req, res) => {
     const { email, password } = req.body;
     authService.registerUser(email, password, (err, user) => {
-        if (err) return res.status(500).json({ message: 'kwiYANDIKISHA BYANZE' });
+        if (err){
+            return  console.error(err);
+        res.status(500).json({ message: 'kwiYANDIKISHA BYANZE' });
+        }
         // if (!user) {
         //     return res.status(400).json({ message: 'Invalid email or password' });
         // }
